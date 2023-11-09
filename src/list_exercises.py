@@ -1,9 +1,19 @@
 def create_greeting_strings(names):
-    pass
+    greeting = []
+
+    for name in names:
+        greeting.append(f"Hello {name}!")
+
+    return greeting
 
 
 def multiply_by_num(num_list, multiplier):
-    pass
+    multiplied_nums = []
+
+    for num in num_list:
+        multiplied_nums.append(num * multiplier)
+
+    return multiplied_nums
 
 
 def find_github_admins(users):
