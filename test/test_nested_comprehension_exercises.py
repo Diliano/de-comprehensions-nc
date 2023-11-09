@@ -10,7 +10,7 @@ def test_flatten_list_empty_list():
     assert flatten_list([]) == []
 
 
-@pytest.mark.skip()
+# @pytest.mark.skip()
 @pytest.mark.it((
     "flatten_list: when called with list containing single list, function "
     "returns flattened list"))
@@ -18,7 +18,7 @@ def test_flatten_list_single_nested_list():
     assert flatten_list([[1, 2, 3]]) == [1, 2, 3]
 
 
-@pytest.mark.skip()
+# @pytest.mark.skip()
 @pytest.mark.it((
     "flatten_list: when called with list containing multiple single element "
     "lists, function returns flattened list"))
@@ -26,7 +26,7 @@ def test_flatten_list_multiple_nested_single_element_lists():
     assert flatten_list([[1], [2], [3]]) == [1, 2, 3]
 
 
-@pytest.mark.skip()
+# @pytest.mark.skip()
 @pytest.mark.it((
     "flatten_list: when called with list containing multiple nested lists "
     "of the same length, function returns flattened list"))
@@ -36,7 +36,7 @@ def test_flatten_list_multiple_nested_lists_of_same_length():
         1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
-@pytest.mark.skip()
+# @pytest.mark.skip()
 @pytest.mark.it((
     "flatten_list: when called with list containing multiple nested lists of"
     " different lengths, function returns flattened list"))

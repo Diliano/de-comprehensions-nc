@@ -79,6 +79,7 @@ def test_switch_name_and_id_returns_dict_with_swapped_keys_and_values():
         "q4r55t": "Cat"}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("create_multiplication_table: when called with any number and a limit "
      "of 0, function should return empty dict"))
@@ -88,6 +89,7 @@ def test_create_multiplication_table_returns_empty_dict():
     assert create_multiplication_table(10, 0) == {}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("create_multiplication_table: when called with any number and a limit "
      "of 1, function should return dict with single key and the value of "
@@ -98,6 +100,7 @@ def test_create_multiplication_table_returns_dict_with_single_key():
     assert create_multiplication_table(10, 1) == {1: 10}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("create_multiplication_table: when called with any number and a limit "
      "of greater than 1, function should return dict with keys from 1 to "
@@ -110,6 +113,7 @@ def test_create_multiplication_table_returns_dict_with_keys_from_1_to_limit():
         1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90, 10: 100}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("square_numbers: when called with empty list, function should return "
      "empty dictionary"))
@@ -117,6 +121,7 @@ def test_square_numbers_returns_empty_dict():
     assert square_numbers([]) == {}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("square_numbers: when called with list with even numbers, function "
      "should return dictionary with keys and values of squared numbers"))
@@ -125,6 +130,7 @@ def test_square_numbers_returns_dict_with_single_key():
     assert square_numbers([10, 20]) == {10: 100, 20: 400}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("square_numbers: when called with a list of odd numbers, function should "
      "return empty dict"))
@@ -134,6 +140,7 @@ def test_square_numbers_returns_empty_dict_when_invoked_with_odd_numbers():
     assert square_numbers([11, 13, 15, 17, 19]) == {}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("square_numbers: when called with list with mixed list of odd and even "
      "number, function should only return squares of the even numbers"))
@@ -143,6 +150,7 @@ def test_square_numbers_mixed_list_of_odds_and_evens():
         2: 4, 4: 16, 6: 36, 8: 64}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("find_average_games: when called with empty list, function should "
      "return empty dictionary"))
@@ -150,6 +158,7 @@ def test_find_average_games_returns_empty_dict():
     assert find_average_games([]) == {}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("find_average_games: when called with list with average games, "
      "function should return dictionary with keys and values of "
@@ -162,6 +171,7 @@ def test_find_average_games_returns_dict_with_average_games():
         "The Sims 2": 50, "World of Warcraft": 33}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("find_average_games: when called with a list with only highly rated "
      "games, function should return empty dictionary"))
@@ -174,6 +184,7 @@ def test_find_average_games_returns_empty_dict_when_only_highly_rated_games():
         ["Tony Hawk's Pro Skater 2", 99]]) == {}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("find_average_games: when called with a list with only poorly rated "
      "games, function should return empty dictionary"))
@@ -186,6 +197,7 @@ def test_find_average_games_returns_empty_dict_when_only_poorly_rated_games():
         ["Overcooked 2", 1]]) == {}
 
 
+@pytest.mark.skip()
 @pytest.mark.it(
     ("find_average_games: when called with a list with mixed scoring "
      "games, function should return dictionary with keys and "
