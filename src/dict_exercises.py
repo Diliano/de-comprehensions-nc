@@ -22,7 +22,7 @@ def create_multiplication_table(multiplier, limit):
     pass
 
 
-def square_numbers(number_list):
+def square_even_numbers(number_list):
     pass
 
 

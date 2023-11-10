@@ -63,7 +63,8 @@ def test_create_square_matrix_empty_matrix():
 
 @pytest.mark.skip()
 @pytest.mark.it((
-    "create_square_matrix: when called with a 1, function returns matrix of length 1"
+    "create_square_matrix: when called with a 1, function returns matrix of "
+    "length 1"
 ))
 def test_create_square_matrix_1():
     assert create_square_matrix(1) == [[1]]
@@ -71,8 +72,8 @@ def test_create_square_matrix_1():
 
 @pytest.mark.skip()
 @pytest.mark.it((
-    "create_square_matrix: when called with a number >= 2, function returns matrix "
-    "of appropriate length"))
+    "create_square_matrix: when called with a number >= 2, function returns "
+    "matrix of appropriate length"))
 def test_create_square_matrix_larger_matrix():
     assert create_square_matrix(2) == [[1, 2], [1, 2]]
     assert create_square_matrix(3) == [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
@@ -83,8 +84,8 @@ def test_create_square_matrix_larger_matrix():
 
 @pytest.mark.skip()
 @pytest.mark.it((
-    "create_square_matrix: function should be able to accept an optional argument "
-    "specifying the number to start from"))
+    "create_square_matrix: function should be able to accept an optional "
+    "argument specifying the number to start from"))
 def test_create_square_matrix_start_from():
     assert create_square_matrix(2, start=3) == [[3, 4], [3, 4]]
     assert create_square_matrix(3, start=5) == [
@@ -100,8 +101,8 @@ def test_create_square_matrix_start_from():
 
 @pytest.mark.skip()
 @pytest.mark.it((
-    "create_square_matrix: function should be able to accept an optional argument "
-    "specifying the number to increment by"))
+    "create_square_matrix: function should be able to accept an optional "
+    "argument specifying the number to increment by"))
 def test_create_square_matrix_increment_by():
     assert create_square_matrix(2, step=3) == [[1, 4], [1, 4]]
     assert create_square_matrix(3, step=5) == [
@@ -113,8 +114,8 @@ def test_create_square_matrix_increment_by():
 
 @pytest.mark.skip()
 @pytest.mark.it((
-    "create_square_matrix: function should be able to accept multiple optional "
-    "arguments specifying the number to start from and increment by"))
+    "create_square_matrix: function should be able to accept multiple "
+    "optional arguments specifying the number to start from and increment by"))
 def test_create_square_matrix_multiple_optional_arguments():
     assert create_square_matrix(2, start=3, step=2) == [[3, 5], [3, 5]]
     assert create_square_matrix(3, start=5, step=3) == [

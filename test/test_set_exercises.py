@@ -13,7 +13,7 @@ def test_get_unique_departments():
 
 @pytest.mark.it((
     "get_unique_departments: given list containing single employee, function "
-    "returns collectionwith single element"))
+    "returns collection containing single element"))
 def test_get_unique_departments_single():
     output = get_unique_departments([
         {
@@ -28,8 +28,8 @@ def test_get_unique_departments_single():
 
 @pytest.mark.it((
     "get_unique_departments: given list containing multiple employees "
-    "belonging to different departments, function returns collection with multiple "
-    "unique elements"))
+    "belonging to different departments, function returns collection with "
+    "multiple unique elements"))
 def test_get_unique_departments_multiple_employee_unique_departments():
     output = get_unique_departments([
         {
@@ -52,8 +52,8 @@ def test_get_unique_departments_multiple_employee_unique_departments():
 
 @pytest.mark.it((
     "get_unique_departments: given list containing multiple employees "
-    "belonging to the same department, function returns collection with single "
-    "element"))
+    "belonging to the same department, function returns collection with "
+    "single element"))
 def test_get_unique_departments_multi_employee_single_department():
     output = get_unique_departments([
         {

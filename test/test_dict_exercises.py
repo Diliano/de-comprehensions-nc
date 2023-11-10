@@ -1,6 +1,6 @@
 from src.dict_exercises import (
     find_word_lengths, switch_name_and_id, create_multiplication_table,
-    square_numbers, find_average_games
+    square_even_numbers, find_average_games
 )
 import pytest
 
@@ -115,38 +115,38 @@ def test_create_multiplication_table_returns_dict_with_keys_from_1_to_limit():
 
 @pytest.mark.skip()
 @pytest.mark.it(
-    ("square_numbers: when called with empty list, function should return "
-     "empty dictionary"))
-def test_square_numbers_returns_empty_dict():
-    assert square_numbers([]) == {}
+    ("square_even_numbers: when called with empty list, function should "
+     "return empty dictionary"))
+def test_square_even_numbers_returns_empty_dict():
+    assert square_even_numbers([]) == {}
 
 
 @pytest.mark.skip()
 @pytest.mark.it(
-    ("square_numbers: when called with list with even numbers, function "
+    ("square_even_numbers: when called with list with even numbers, function "
      "should return dictionary with keys and values of squared numbers"))
-def test_square_numbers_returns_dict_with_single_key():
-    assert square_numbers([10]) == {10: 100}
-    assert square_numbers([10, 20]) == {10: 100, 20: 400}
+def test_square_even_numbers_returns_dict_with_single_key():
+    assert square_even_numbers([10]) == {10: 100}
+    assert square_even_numbers([10, 20]) == {10: 100, 20: 400}
 
 
 @pytest.mark.skip()
 @pytest.mark.it(
-    ("square_numbers: when called with a list of odd numbers, function should "
-     "return empty dict"))
-def test_square_numbers_returns_empty_dict_when_invoked_with_odd_numbers():
-    assert square_numbers([1]) == {}
-    assert square_numbers([1, 3, 5, 7, 9]) == {}
-    assert square_numbers([11, 13, 15, 17, 19]) == {}
+    ("square_even_numbers: when called with a list of odd numbers, function "
+     "should return empty dict"))
+def test_square_even_numbers_returns_empty_dict_when_passed_odd_numbers():
+    assert square_even_numbers([1]) == {}
+    assert square_even_numbers([1, 3, 5, 7, 9]) == {}
+    assert square_even_numbers([11, 13, 15, 17, 19]) == {}
 
 
 @pytest.mark.skip()
 @pytest.mark.it(
-    ("square_numbers: when called with list with mixed list of odd and even "
-     "number, function should only return squares of the even numbers"))
-def test_square_numbers_mixed_list_of_odds_and_evens():
-    assert square_numbers([1, 2, 3, 4, 5]) == {2: 4, 4: 16}
-    assert square_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9]) == {
+    ("square_even_numbers: when called with list with mixed list of odd and "
+     "even number, function should only return squares of the even numbers"))
+def test_square_even_numbers_mixed_list_of_odds_and_evens():
+    assert square_even_numbers([1, 2, 3, 4, 5]) == {2: 4, 4: 16}
+    assert square_even_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9]) == {
         2: 4, 4: 16, 6: 36, 8: 64}
 
 
