@@ -70,25 +70,25 @@ def test_find_github_admins_includes_all_admins():
                    "location": 'Bolton',
                    "age": 22,
                    'favourite_language': 'JavaScript',
-                   "githubAdmin": True},
+                   "github_admin": True},
                   {"first_name": 'Joe',
                    "last_name": 'Mulvey',
                    "location": 'Liverpool-ish',
                    "age": 21,
                    'favourite_language': 'Python',
-                   "githubAdmin": True}]
+                   "github_admin": True}]
     expected_output = [{"first_name": 'Paul',
                         "last_name": 'Copley',
                         "location": 'Bolton',
                         "age": 22,
                         'favourite_language': 'JavaScript',
-                        "githubAdmin": True},
+                        "github_admin": True},
                        {"first_name": 'Joe',
                         "last_name": 'Mulvey',
                         "location": 'Liverpool-ish',
                         "age": 21,
                         'favourite_language': 'Python',
-                        "githubAdmin": True}]
+                        "github_admin": True}]
     assert find_github_admins(test_users) == expected_output
 
 
@@ -101,19 +101,19 @@ def test_find_github_admins_filters_out_non_admins():
                    "location": 'Stockport',
                    "age": 29,
                    'favourite_language': 'Bash',
-                   "githubAdmin": False},
+                   "github_admin": False},
                   {"first_name": 'Alex',
                    "last_name": 'Swain',
                    "location": 'The South 🤮',
                    "age": 73,
                    'favourite_language': 'C Sharp',
-                   "githubAdmin": False},
+                   "github_admin": False},
                   {"first_name": 'Cat',
                    "last_name": 'Hoang',
                    "location": 'Greater Manchester',
                    "age": 21,
                    'favourite_language': 'Python',
-                   "githubAdmin": False}]
+                   "github_admin": False}]
     expected_output = []
     assert find_github_admins(test_users) == expected_output
 
@@ -128,44 +128,44 @@ def test_find_github_admins_correctly_filters_mixed_list():
                    "location": 'Bolton',
                    "age": 22,
                    'favourite_language': 'JavaScript',
-                   "githubAdmin": True},
+                   "github_admin": True},
                   {"first_name": 'Kyle',
                    "last_name": 'McPhail',
                    "location": 'Manchester',
                    "age": 21,
                    'favourite_language': 'Python',
-                   "githubAdmin": False},
+                   "github_admin": False},
                   {"first_name": 'Chon',
                    "last_name": 'Lee',
                    "location": 'Manchester',
                    "age": 21,
                    'favourite_language': 'Python',
-                   "githubAdmin": False},
+                   "github_admin": False},
                   {"first_name": 'Joe',
                    "last_name": 'Mulvey',
                    "location": 'Liverpool-ish',
                    "age": 21,
                    'favourite_language': 'Python',
-                   "githubAdmin": True},
+                   "github_admin": True},
                   {"first_name": 'Simon',
                    "last_name": 'Jackson',
                    "location": 'Leeds',
                    "age": 21,
                    'favourite_language': 'Python',
-                   "githubAdmin": False}]
+                   "github_admin": False}]
 
     expected_output = [{"first_name": 'Paul',
                         "last_name": 'Copley',
                         "location": 'Bolton',
                         "age": 22,
                         'favourite_language': 'JavaScript',
-                        "githubAdmin": True},
+                        "github_admin": True},
                        {"first_name": 'Joe',
                         "last_name": 'Mulvey',
                         "location": 'Liverpool-ish',
                         "age": 21,
                         'favourite_language': 'Python',
-                        "githubAdmin": True}]
+                        "github_admin": True}]
     assert find_github_admins(test_users) == expected_output
 
 
