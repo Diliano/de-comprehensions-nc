@@ -1,5 +1,3 @@
-
-
 def find_word_lengths(words):
     word_lengths = {}
 
