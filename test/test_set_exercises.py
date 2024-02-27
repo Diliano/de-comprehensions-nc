@@ -4,16 +4,12 @@ from src.set_exercises import (
 import pytest
 
 
-@pytest.mark.it(
-    "get_unique_departments: given empty list of employees, "
-    "function should return empty collection")
+# ~~~~ get_unique_departments ~~~~
+
 def test_get_unique_departments():
     assert len(get_unique_departments([])) == 0
 
 
-@pytest.mark.it((
-    "get_unique_departments: given list containing single employee, function "
-    "returns collection containing single element"))
 def test_get_unique_departments_single():
     output = get_unique_departments([
         {
@@ -26,10 +22,6 @@ def test_get_unique_departments_single():
     assert len(output) == 1
 
 
-@pytest.mark.it((
-    "get_unique_departments: given list containing multiple employees "
-    "belonging to different departments, function returns collection with "
-    "multiple unique elements"))
 def test_get_unique_departments_multiple_employee_unique_departments():
     output = get_unique_departments([
         {
@@ -50,10 +42,6 @@ def test_get_unique_departments_multiple_employee_unique_departments():
     assert len(output) == 3
 
 
-@pytest.mark.it((
-    "get_unique_departments: given list containing multiple employees "
-    "belonging to the same department, function returns collection with "
-    "single element"))
 def test_get_unique_departments_multi_employee_single_department():
     output = get_unique_departments([
         {
@@ -74,10 +62,6 @@ def test_get_unique_departments_multi_employee_single_department():
     assert len(output) == 1
 
 
-@pytest.mark.it((
-    "get_unique_departments: given list containing multiple employees "
-    "belonging to the multiple departments, function returns collection with "
-    "unique departments only"))
 def test_get_unique_departments_multi_employee_multi_department():
     output = get_unique_departments([
         {
@@ -111,18 +95,14 @@ def test_get_unique_departments_multi_employee_multi_department():
     assert len(output) == 4
 
 
+# ~~~~ get_unique_words ~~~~
+
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("get_unique_words: given empty list of words, function should return "
-     "empty collection"))
-def test_get_unique_words():
+def test_get_unique_words_no_words():
     assert len(get_unique_words([])) == 0
 
 
 @pytest.mark.skip()
-@pytest.mark.it((
-    "get_unique_words: given list containing single word, function returns "
-    "collection with single element"))
 def test_get_unique_words_single_word():
     output = get_unique_words(["hello"])
 
@@ -131,9 +111,6 @@ def test_get_unique_words_single_word():
 
 
 @pytest.mark.skip()
-@pytest.mark.it((
-    "get_unique_words: given list containing multiple unique words, function "
-    "returns collection with multiple unique elements"))
 def test_get_unique_words_multiple_unique_words():
     output = get_unique_words(["hello", "world", "goodbye"])
 
@@ -142,9 +119,6 @@ def test_get_unique_words_multiple_unique_words():
 
 
 @pytest.mark.skip()
-@pytest.mark.it((
-    "get_unique_words: given list containing multiple duplicate words, "
-    "function returns collection with single element"))
 def test_get_unique_words_multiple_duplicate_words():
     output = get_unique_words(["hello", "world", "hello", "world"])
 
@@ -154,9 +128,6 @@ def test_get_unique_words_multiple_duplicate_words():
 
 
 @pytest.mark.skip()
-@pytest.mark.it((
-    "get_unique_words: given list containing multiple of the same word with "
-    "different casing, function should return a single word in lowercase"))
 def test_get_unique_words_multiple_same_word_different_casing():
     output = get_unique_words(["Hello", "hello", "HELLO", "HeLLo"])
 
@@ -165,10 +136,6 @@ def test_get_unique_words_multiple_same_word_different_casing():
 
 
 @pytest.mark.skip()
-@pytest.mark.it((
-    "get_unique_words: given list containing mixture of words - some unique, "
-    "some the same with different casing, function should return collection "
-    "containing only unique words in lowercase"))
 def test_get_unique_words_multiple_mixed_words():
     output = get_unique_words(
         ["Hello", "hello", "HELLO", "HeLLo", "woRld", "goodbye", "GoOdbYe"])
