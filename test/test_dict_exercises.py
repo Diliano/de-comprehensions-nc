@@ -5,26 +5,18 @@ from src.dict_exercises import (
 import pytest
 
 
-@pytest.mark.it(
-    ("find_word_lengths: when called with empty list, function should "
-     "return empty dict"))
-def test_find_word_lengths_returns_empty_dict():
+# ~~~~ find_word_lengths ~~~~
+
+def test_find_word_lengths_passed_empty_list_returns_empty_dict():
     assert find_word_lengths([]) == {}
 
 
-@pytest.mark.it(
-    ("find_word_lengths: when called with list with single word, function "
-     "should return dict with single key and value of word length"))
 def test_find_word_lengths_returns_dict_with_single_key():
     assert find_word_lengths(["hello"]) == {"hello": 5}
     assert find_word_lengths(["goodbye"]) == {"goodbye": 7}
     assert find_word_lengths(["hi"]) == {"hi": 2}
 
 
-@pytest.mark.it(
-    ("find_word_lengths: when called with list with multiple words, "
-     "function should return dict with keys of words and values of "
-     "word lengths"))
 def test_find_word_lengths_returns_dict_with_keys_and_values():
     assert find_word_lengths(["hello", "goodbye"]) == {
         "hello": 5, "goodbye": 7}
@@ -41,27 +33,18 @@ def test_find_word_lengths_returns_dict_with_keys_and_values():
         "cool": 4}
 
 
-@pytest.mark.it(
-    ("switch_name_and_id: when called with empty dictionary, function should "
-     "return empty dictionary"))
-def test_switch_name_and_id_returns_empty_dict():
+# ~~~~ switch_name_and_id ~~~~
+
+def test_switch_name_and_id_passed_empty_dict_returns_empty_dict_():
     assert switch_name_and_id({}) == {}
 
 
-@pytest.mark.it(
-    ("switch_name_and_id: when called with dictionary with single key and "
-     "value, function should return dictionary with value and key "
-     "swapped around"))
 def test_switch_name_and_id_returns_dict_with_single_swapped_key_and_value():
     assert switch_name_and_id({"Alex": "a7d29w"}) == {"a7d29w": "Alex"}
     assert switch_name_and_id({"Chon": "z2r51e"}) == {"z2r51e": "Chon"}
     assert switch_name_and_id({"Cat": "p3f44m"}) == {"p3f44m": "Cat"}
 
 
-@pytest.mark.it(
-    ("switch_name_and_id: when called with dictionary with multiple keys "
-     "and values, function should return dictionary with keys and values "
-     "swapped around"))
 def test_switch_name_and_id_returns_dict_with_swapped_keys_and_values():
     assert switch_name_and_id({"Alex": "a7d29w", "Chon": "z2r51e"}) == {
         "a7d29w": "Alex", "z2r51e": "Chon"}
@@ -79,32 +62,23 @@ def test_switch_name_and_id_returns_dict_with_swapped_keys_and_values():
         "q4r55t": "Cat"}
 
 
+# ~~~~ create_multiplication_table ~~~~
+
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("create_multiplication_table: when called with any number and a limit "
-     "of 0, function should return empty dict"))
-def test_create_multiplication_table_returns_empty_dict():
+def test_create_multiplication_table_limit_0():
     assert create_multiplication_table(1, 0) == {}
     assert create_multiplication_table(5, 0) == {}
     assert create_multiplication_table(10, 0) == {}
 
 
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("create_multiplication_table: when called with any number and a limit "
-     "of 1, function should return dict with single key and the value of "
-     "given number"))
-def test_create_multiplication_table_returns_dict_with_single_key():
+def test_create_multiplication_table_limit_1_single_key():
     assert create_multiplication_table(1, 1) == {1: 1}
     assert create_multiplication_table(5, 1) == {1: 5}
     assert create_multiplication_table(10, 1) == {1: 10}
 
 
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("create_multiplication_table: when called with any number and a limit "
-     "of greater than 1, function should return dict with keys from 1 to "
-     "limit and values of multiplication of given number and keys"))
 def test_create_multiplication_table_returns_dict_with_keys_from_1_to_limit():
     assert create_multiplication_table(1, 2) == {1: 1, 2: 2}
     assert create_multiplication_table(
@@ -113,27 +87,20 @@ def test_create_multiplication_table_returns_dict_with_keys_from_1_to_limit():
         1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60, 7: 70, 8: 80, 9: 90, 10: 100}
 
 
+# ~~~~ square_even_numbers ~~~~
+
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("square_even_numbers: when called with empty list, function should "
-     "return empty dictionary"))
-def test_square_even_numbers_returns_empty_dict():
+def test_square_even_numbers_passed_empty_list_returns_empty_dict():
     assert square_even_numbers([]) == {}
 
 
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("square_even_numbers: when called with list with even numbers, function "
-     "should return dictionary with keys and values of squared numbers"))
-def test_square_even_numbers_returns_dict_with_single_key():
+def test_square_even_numbers_returns_dict_with_squared_nums_all_evens():
     assert square_even_numbers([10]) == {10: 100}
     assert square_even_numbers([10, 20]) == {10: 100, 20: 400}
 
 
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("square_even_numbers: when called with a list of odd numbers, function "
-     "should return empty dict"))
 def test_square_even_numbers_returns_empty_dict_when_passed_odd_numbers():
     assert square_even_numbers([1]) == {}
     assert square_even_numbers([1, 3, 5, 7, 9]) == {}
@@ -141,28 +108,20 @@ def test_square_even_numbers_returns_empty_dict_when_passed_odd_numbers():
 
 
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("square_even_numbers: when called with list with mixed list of odd and "
-     "even number, function should only return squares of the even numbers"))
 def test_square_even_numbers_mixed_list_of_odds_and_evens():
     assert square_even_numbers([1, 2, 3, 4, 5]) == {2: 4, 4: 16}
     assert square_even_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9]) == {
         2: 4, 4: 16, 6: 36, 8: 64}
 
 
+# ~~~~ find_average_games ~~~~
+
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("find_average_games: when called with empty list, function should "
-     "return empty dictionary"))
-def test_find_average_games_returns_empty_dict():
+def test_find_average_games_passed_empty_list_returns_empty_dict():
     assert find_average_games([]) == {}
 
 
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("find_average_games: when called with list with average games, "
-     "function should return dictionary with keys and values of "
-     "average games"))
 def test_find_average_games_returns_dict_with_average_games():
     assert find_average_games([["Minecraft", 67]]) == {
         "Minecraft": 67}
@@ -172,9 +131,6 @@ def test_find_average_games_returns_dict_with_average_games():
 
 
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("find_average_games: when called with a list with only highly rated "
-     "games, function should return empty dictionary"))
 def test_find_average_games_returns_empty_dict_when_only_highly_rated_games():
     assert find_average_games([["Old School Runescape", 100]]) == {}
     assert find_average_games(
@@ -185,9 +141,6 @@ def test_find_average_games_returns_empty_dict_when_only_highly_rated_games():
 
 
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("find_average_games: when called with a list with only poorly rated "
-     "games, function should return empty dictionary"))
 def test_find_average_games_returns_empty_dict_when_only_poorly_rated_games():
     assert find_average_games([["Baldur's Gate 3", 0]]) == {}
     assert find_average_games(
@@ -198,10 +151,6 @@ def test_find_average_games_returns_empty_dict_when_only_poorly_rated_games():
 
 
 @pytest.mark.skip()
-@pytest.mark.it(
-    ("find_average_games: when called with a list with mixed scoring "
-     "games, function should return dictionary with keys and "
-     "values of average games"))
 def test_find_average_games_returns_dict_with_average_games_mixed_scoring():
     assert find_average_games([["Minecraft", 67], ["Baldur's Gate 3", 0]]) == {
         "Minecraft": 67}
