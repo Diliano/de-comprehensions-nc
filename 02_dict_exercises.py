@@ -2,12 +2,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 
 
 def find_word_lengths(words):
-    word_lengths = {}
-
-    for word in words:
-        word_lengths[word] = len(word)
-
-    return word_lengths
+    return {word: len(word) for word in words}
 
 
 @run_test
@@ -17,7 +12,7 @@ def test_find_word_lengths_passed_empty_list_returns_empty_dict():
     )
 
 
-@skip_test
+@run_test
 def test_find_word_lengths_returns_dict_with_single_key():
     assert find_word_lengths(["hello"]) == {"hello": 5}, format_err_msg(
         {"hello": 5}, find_word_lengths(["hello"])
@@ -30,7 +25,7 @@ def test_find_word_lengths_returns_dict_with_single_key():
     )
 
 
-@skip_test
+@run_test
 def test_find_word_lengths_returns_dict_with_keys_and_values():
     assert find_word_lengths(["hello", "goodbye"]) == {
         "hello": 5,
@@ -99,22 +94,17 @@ def test_find_word_lengths_returns_dict_with_keys_and_values():
 
 
 def switch_name_and_id(data):
-    switched_data = {}
-
-    for record in data.items():
-        switched_data[record[1]] = record[0]
-
-    return switched_data
+    return {id: name for name, id in data.items()}
 
 
-@skip_test
+@run_test
 def test_switch_name_and_id_passed_empty_dict_returns_empty_dict_():
     assert switch_name_and_id({}) == {}, format_err_msg(
         {}, switch_name_and_id({})
     )
 
 
-@skip_test
+@run_test
 def test_switch_name_and_id_returns_dict_with_single_swapped_key_and_value():
     assert switch_name_and_id({"Alex": "a7d29w"}) == {
         "a7d29w": "Alex"
@@ -131,7 +121,7 @@ def test_switch_name_and_id_returns_dict_with_single_swapped_key_and_value():
     }, format_err_msg({"p3f44m": "Cat"}, switch_name_and_id({"Cat": "p3f44m"}))
 
 
-@skip_test
+@run_test
 def test_switch_name_and_id_returns_dict_with_swapped_keys_and_values():
     assert switch_name_and_id({"Alex": "a7d29w", "Chon": "z2r51e"}) == {
         "a7d29w": "Alex",
@@ -183,10 +173,10 @@ def test_switch_name_and_id_returns_dict_with_swapped_keys_and_values():
 
 
 def create_multiplication_table(multiplier, limit):
-    pass
+    return {x: multiplier * x for x in range(1, limit + 1)}
 
 
-@skip_test
+@run_test
 def test_create_multiplication_table_limit_0():
     assert create_multiplication_table(1, 0) == {}, format_err_msg(
         {}, create_multiplication_table(1, 0)
@@ -199,7 +189,7 @@ def test_create_multiplication_table_limit_0():
     )
 
 
-@skip_test
+@run_test
 def test_create_multiplication_table_limit_1_single_key():
     assert create_multiplication_table(1, 1) == {1: 1}, format_err_msg(
         {1: 1}, create_multiplication_table(1, 1)
@@ -212,7 +202,7 @@ def test_create_multiplication_table_limit_1_single_key():
     )
 
 
-@skip_test
+@run_test
 def test_create_multiplication_table_returns_dict_with_keys_from_1_to_limit():
     assert create_multiplication_table(1, 2) == {1: 1, 2: 2}, format_err_msg(
         {1: 1, 2: 2}, create_multiplication_table(1, 2)
@@ -256,17 +246,17 @@ def test_create_multiplication_table_returns_dict_with_keys_from_1_to_limit():
 
 
 def square_even_numbers(number_list):
-    pass
+    return {num: num**2 for num in number_list if num % 2 == 0}
 
 
-@skip_test
+@run_test
 def test_square_even_numbers_passed_empty_list_returns_empty_dict():
     assert square_even_numbers([]) == {}, format_err_msg(
         {}, square_even_numbers([])
     )
 
 
-@skip_test
+@run_test
 def test_square_even_numbers_returns_dict_with_squared_nums_all_evens():
     assert square_even_numbers([10]) == {10: 100}, format_err_msg(
         {10: 100}, square_even_numbers([10])
@@ -276,7 +266,7 @@ def test_square_even_numbers_returns_dict_with_squared_nums_all_evens():
     )
 
 
-@skip_test
+@run_test
 def test_square_even_numbers_returns_empty_dict_when_passed_odd_numbers():
     assert square_even_numbers([1]) == {}, format_err_msg(
         {}, square_even_numbers([1])
@@ -289,7 +279,7 @@ def test_square_even_numbers_returns_empty_dict_when_passed_odd_numbers():
     )
 
 
-@skip_test
+@run_test
 def test_square_even_numbers_mixed_list_of_odds_and_evens():
     assert square_even_numbers([1, 2, 3, 4, 5]) == {2: 4, 4: 16}
     assert square_even_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9]) == {
@@ -301,15 +291,15 @@ def test_square_even_numbers_mixed_list_of_odds_and_evens():
 
 
 def find_average_games(games):
-    pass
+    return {game[0]: game[1] for game in games if 25 < game[1] < 75}
 
 
-@skip_test
+@run_test
 def test_find_average_games_passed_empty_list_returns_empty_dict():
     assert find_average_games([]) == {}
 
 
-@skip_test
+@run_test
 def test_find_average_games_returns_dict_with_average_games():
     assert find_average_games([["Minecraft", 67]]) == {"Minecraft": 67}
     assert find_average_games(
@@ -317,7 +307,7 @@ def test_find_average_games_returns_dict_with_average_games():
     ) == {"The Sims 2": 50, "World of Warcraft": 33}
 
 
-@skip_test
+@run_test
 def test_find_average_games_returns_empty_dict_when_only_highly_rated_games():
     assert find_average_games([["Old School Runescape", 100]]) == {}
     assert (
@@ -335,7 +325,7 @@ def test_find_average_games_returns_empty_dict_when_only_highly_rated_games():
     )
 
 
-@skip_test
+@run_test
 def test_find_average_games_returns_empty_dict_when_only_poorly_rated_games():
     assert find_average_games([["Baldur's Gate 3", 0]]) == {}
     assert find_average_games([["Call of Duty", 5], ["Farmville", 17]]) == {}
@@ -351,7 +341,7 @@ def test_find_average_games_returns_empty_dict_when_only_poorly_rated_games():
     )
 
 
-@skip_test
+@run_test
 def test_find_average_games_returns_dict_with_average_games_mixed_scoring():
     assert find_average_games([["Minecraft", 67], ["Baldur's Gate 3", 0]]) == {
         "Minecraft": 67
