@@ -2,12 +2,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 
 
 def create_greeting_strings(names):
-    greeting = []
-
-    for name in names:
-        greeting.append(f"Hello {name}!")
-
-    return greeting
+    return [f"Hello {name}!" for name in names]
 
 
 @run_test
@@ -17,14 +12,14 @@ def test_create_greeting_strings_return_empty_list():
     )
 
 
-@skip_test
+@run_test
 def test_create_greeting_strings_greets_single_name_in_list():
     assert create_greeting_strings(["Danika"]) == [
         "Hello Danika!"
     ], format_err_msg("Hello Danika!", create_greeting_strings(["Danika"]))
 
 
-@skip_test
+@run_test
 def test_create_greeting_strings_greets_all_names_in_list():
     test_list = ["Paul", "Joe", "Cat", "Alex", "Chon", "Simon", "Kyle"]
     expected_result = [
@@ -42,29 +37,23 @@ def test_create_greeting_strings_greets_all_names_in_list():
 
 
 def multiply_by_num(num_list, multiplier):
-    multiplied_nums = []
+    return [num * multiplier for num in num_list]
 
-    for num in num_list:
-        multiplied_nums.append(num * multiplier)
-
-    return multiplied_nums
-
-
-@skip_test
+@run_test
 def test_multiply_by_num_return_empty_list():
     assert multiply_by_num([], 1) == [], format_err_msg(
         [], multiply_by_num([], 1)
     )
 
 
-@skip_test
+@run_test
 def test_multiply_by_num_multiplies_single_element_in_list():
     assert multiply_by_num([5], 10) == [50], format_err_msg(
         [50], multiply_by_num([5], 10)
     )
 
 
-@skip_test
+@run_test
 def test_multiply_by_num_multiplies_all_list_elements():
     test_list = [1, 2, 3, 4, 5]
     test_multiplier = 5
@@ -80,17 +69,17 @@ def test_multiply_by_num_multiplies_all_list_elements():
 
 
 def find_github_admins(users):
-    pass
+    return [user for user in users if user["github_admin"] == True]
 
 
-@skip_test
+@run_test
 def test_find_github_admins_return_empty_list():
     assert find_github_admins([]) == [], format_err_msg(
         [], find_github_admins([])
     )
 
 
-@skip_test
+@run_test
 def test_find_github_admins_includes_all_admins():
     test_users = [
         {
@@ -133,7 +122,7 @@ def test_find_github_admins_includes_all_admins():
     )
 
 
-@skip_test
+@run_test
 def test_find_github_admins_filters_out_non_admins():
     test_users = [
         {
@@ -167,7 +156,7 @@ def test_find_github_admins_filters_out_non_admins():
     )
 
 
-@skip_test
+@run_test
 def test_find_github_admins_correctly_filters_mixed_list():
     test_users = [
         {
@@ -236,31 +225,31 @@ def test_find_github_admins_correctly_filters_mixed_list():
 
 
 def increment_even_numbers(number_list):
-    pass
+    return [num + 1 if num % 2 == 0 else num for num in number_list]
 
 
-@skip_test
+@run_test
 def test_increment_even_numbers_return_empty_list():
     assert increment_even_numbers([]) == [], format_err_msg(
         [], increment_even_numbers([])
     )
 
 
-@skip_test
+@run_test
 def test_increment_even_numbers_increments_even_numbers():
     assert increment_even_numbers([2, 4, 6]) == [3, 5, 7], format_err_msg(
         [3, 5, 7], increment_even_numbers([2, 4, 6])
     )
 
 
-@skip_test
+@run_test
 def test_increment_even_numbers_ignores_odd_numbers():
     assert increment_even_numbers([1, 3, 5]) == [1, 3, 5], format_err_msg(
         [1, 3, 5], increment_even_numbers([1, 3, 5])
     )
 
 
-@skip_test
+@run_test
 def test_increment_even_numbers_mixed_even_and_odd():
     assert increment_even_numbers([1, 2, 3, 4, 5]) == [
         1,
@@ -272,17 +261,17 @@ def test_increment_even_numbers_mixed_even_and_odd():
 
 
 def find_greater_than_ten_divisible_by_three(number_list):
-    pass
+    return [num for num in number_list if num > 10 and num % 3 == 0]
 
 
-@skip_test
+@run_test
 def test_find_greater_than_ten_divisible_by_three_empty_list():
     assert find_greater_than_ten_divisible_by_three([]) == [], format_err_msg(
         [], find_greater_than_ten_divisible_by_three([])
     )
 
 
-@skip_test
+@run_test
 def test_find_greater_than_ten_divisible_by_three_non_matching_criteria():
     assert (
         find_greater_than_ten_divisible_by_three([1, 5, 9, 16, 22, 100]) == []
@@ -291,7 +280,7 @@ def test_find_greater_than_ten_divisible_by_three_non_matching_criteria():
     )
 
 
-@skip_test
+@run_test
 def test_find_greater_than_ten_divisible_by_three_all_matching_criteria():
     assert find_greater_than_ten_divisible_by_three([15, 21, 60, 120]) == [
         15,
@@ -304,7 +293,7 @@ def test_find_greater_than_ten_divisible_by_three_all_matching_criteria():
     )
 
 
-@skip_test
+@run_test
 def test_find_greater_than_ten_divisible_by_three_mixed_list():
     test_list = [1, 45, 87, 3, 150, 276, 7155, 230, 1000, 7]
     expected_result = [45, 87, 150, 276, 7155]
@@ -316,24 +305,24 @@ def test_find_greater_than_ten_divisible_by_three_mixed_list():
 
 
 def find_numbers_containing_digit(number_list, digit):
-    pass
+    return [num for num in number_list if str(digit) in str(num)]
 
 
-@skip_test
+@run_test
 def test_find_numbers_containing_digit_empty_list():
     assert find_numbers_containing_digit([], 1) == [], format_err_msg(
         [], find_numbers_containing_digit([], 1)
     )
 
 
-@skip_test
+@run_test
 def test_find_numbers_containing_digit_non_matching_criteria():
     assert (
         find_numbers_containing_digit([123, 231, 312], 5) == []
     ), format_err_msg([], find_numbers_containing_digit([123, 231, 312], 5))
 
 
-@skip_test
+@run_test
 def test_find_numbers_containing_digit_all_matching_criteria():
     assert find_numbers_containing_digit([15, 50, 555], 5) == [
         15,
@@ -344,7 +333,7 @@ def test_find_numbers_containing_digit_all_matching_criteria():
     )
 
 
-@skip_test
+@run_test
 def test_find_numbers_containing_digit_mixed_list():
     test_list = [13, 72, 932, 127, 7052, 1926, 1027426, 920198382]
     expected_result = [72, 127, 7052, 1027426]
