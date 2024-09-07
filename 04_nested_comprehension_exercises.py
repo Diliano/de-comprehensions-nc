@@ -2,13 +2,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 
 
 def flatten_list(nested_list):
-    flattened_list = []
-
-    for sub_list in nested_list:
-        for el in sub_list:
-            flattened_list.append(el)
-
-    return flattened_list
+    return [num for lst in nested_list for num in lst]
 
 
 @run_test
@@ -16,21 +10,21 @@ def test_flatten_list_empty_list():
     assert flatten_list([]) == [], format_err_msg([], flatten_list([]))
 
 
-@skip_test
+@run_test
 def test_flatten_list_single_nested_list():
     assert flatten_list([[1, 2, 3]]) == [1, 2, 3], format_err_msg(
         [1, 2, 3], flatten_list([[1, 2, 3]])
     )
 
 
-@skip_test
+@run_test
 def test_flatten_list_multiple_nested_single_element_lists():
     assert flatten_list([[1], [2], [3]]) == [1, 2, 3], format_err_msg(
         [1, 2, 3], flatten_list([[1], [2], [3]])
     )
 
 
-@skip_test
+@run_test
 def test_flatten_list_multiple_nested_lists_of_same_length():
     assert flatten_list([[1, 2], [3, 4], [5, 6]]) == [
         1,
@@ -58,7 +52,7 @@ def test_flatten_list_multiple_nested_lists_of_same_length():
     )
 
 
-@skip_test
+@run_test
 def test_flatten_list_multiple_nested_lists_of_different_length():
     assert flatten_list([[1, 2], [3, 4, 5], [6, 7, 8, 9]]) == [
         1,
@@ -114,9 +108,8 @@ def test_flatten_list_multiple_nested_lists_of_different_length():
     )
 
 
-def create_square_matrix(num):
-    pass
-
+def create_square_matrix(num, start=1, step=1):
+    return [[start + (i * step) for i in range(num)] for _ in range(num)]
 
 @run_test
 def test_create_square_matrix_empty_matrix():
@@ -125,14 +118,14 @@ def test_create_square_matrix_empty_matrix():
     )
 
 
-@skip_test
+run_test
 def test_create_square_matrix_1():
     assert create_square_matrix(1) == [[1]], format_err_msg(
         [[1]], create_square_matrix(1)
     )
 
 
-@skip_test
+@run_test
 def test_create_square_matrix_larger_matrix():
     assert create_square_matrix(2) == [[1, 2], [1, 2]], format_err_msg(
         [[1, 2], [1, 2]], create_square_matrix(2)
@@ -155,7 +148,7 @@ def test_create_square_matrix_larger_matrix():
     )
 
 
-@skip_test
+@run_test
 def test_create_square_matrix_start_arg():
     assert create_square_matrix(2, start=3) == [
         [3, 4],
@@ -195,7 +188,7 @@ def test_create_square_matrix_start_arg():
     )
 
 
-@skip_test
+@run_test
 def test_create_square_matrix_step_arg():
     assert create_square_matrix(2, step=3) == [[1, 4], [1, 4]], format_err_msg(
         [[1, 4], [1, 4]], create_square_matrix(2, step=3)
@@ -218,7 +211,7 @@ def test_create_square_matrix_step_arg():
     )
 
 
-@skip_test
+@run_test
 def test_create_square_matrix_multiple_optional_arguments():
     assert create_square_matrix(2, start=3, step=2) == [
         [3, 5],
