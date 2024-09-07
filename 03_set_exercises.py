@@ -2,13 +2,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 
 
 def get_unique_departments(employees):
-    unique_departments = []
-
-    for employee in employees:
-        if employee["department"] not in unique_departments:
-            unique_departments.append(employee["department"])
-
-    return unique_departments
+    return {staff["department"] for staff in employees}
 
 
 @run_test
@@ -18,7 +12,7 @@ def test_get_unique_departments():
     )
 
 
-@skip_test
+@run_test
 def test_get_unique_departments_single():
     output = get_unique_departments([{"name": "Simon", "department": "HR"}])
 
@@ -44,7 +38,7 @@ def test_get_unique_departments_multiple_employee_unique_departments():
     assert len(output) == 3, format_err_msg(3, len(output))
 
 
-@skip_test
+@run_test
 def test_get_unique_departments_multi_employee_single_department():
     output = get_unique_departments(
         [
@@ -58,7 +52,7 @@ def test_get_unique_departments_multi_employee_single_department():
     assert len(output) == 1, format_err_msg(1, len(output))
 
 
-@skip_test
+@run_test
 def test_get_unique_departments_multi_employee_multi_department():
     output = get_unique_departments(
         [
@@ -84,17 +78,17 @@ def test_get_unique_departments_multi_employee_multi_department():
 
 
 def get_unique_words(words):
-    pass
+    return {word.lower() for word in words}
 
 
-@skip_test
+@run_test
 def test_get_unique_words_no_words():
     assert len(get_unique_words([])) == 0, format_err_msg(
         [], get_unique_words([])
     )
 
 
-@skip_test
+@run_test
 def test_get_unique_words_single_word():
     output = get_unique_words(["hello"])
 
@@ -102,7 +96,7 @@ def test_get_unique_words_single_word():
     assert len(output) == 1, format_err_msg(1, len(output))
 
 
-@skip_test
+@run_test
 def test_get_unique_words_multiple_unique_words():
     output = get_unique_words(["hello", "world", "goodbye"])
 
@@ -114,7 +108,7 @@ def test_get_unique_words_multiple_unique_words():
     assert len(output) == 3, format_err_msg(3, len(output))
 
 
-@skip_test
+@run_test
 def test_get_unique_words_multiple_duplicate_words():
     output = get_unique_words(["hello", "world", "hello", "world"])
 
@@ -123,7 +117,7 @@ def test_get_unique_words_multiple_duplicate_words():
     assert len(output) == 2, format_err_msg(2, len(output))
 
 
-@skip_test
+@run_test
 def test_get_unique_words_multiple_same_word_different_casing():
     output = get_unique_words(["Hello", "hello", "HELLO", "HeLLo"])
 
@@ -131,7 +125,7 @@ def test_get_unique_words_multiple_same_word_different_casing():
     assert len(output) == 1, format_err_msg(1, len(output))
 
 
-@skip_test
+@run_test
 def test_get_unique_words_multiple_mixed_words():
     output = get_unique_words(
         ["Hello", "hello", "HELLO", "HeLLo", "woRld", "goodbye", "GoOdbYe"]
