@@ -1,3 +1,5 @@
-# de-comprehensions
+# Data Engineering Bootcamp - Comprehensions
 
-Instructions for this repo can be found at: https://l2c.northcoders.com/courses/de2-intro/comprehensions
+## Overview
+
+This repository contains work completed as part of the Comprehensions Sprint during my Data Engineering Bootcamp. 
